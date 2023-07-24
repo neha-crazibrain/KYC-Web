@@ -1,0 +1,66 @@
+<%- include("../shared/header"); %>
+
+    <div class="container">
+        <div class="heading-title">
+            <h1>Authentication</h1>
+        </div>
+
+        <form action="#" class="needs-validation" novalidate>
+
+            <div class="row g-3 ">
+                <div class="env-title">
+                    <h1>Please select the AW and AWSM details</h1>
+                </div>
+                <div class="col-md-6">
+                    <label for="AW" class="form-label">AW</label>
+                    <select class="form-select" id="AW" name="AW" required>
+                        <option selected disabled value="">--select --</option>
+                        <% aw.forEach((item)=> {%>
+                            <option value="<%= item.id %>">
+                                <%= item.aw_name %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="AWSM" class="form-label">AWSM</label>
+                    <select class="form-select" id="AWSM" name="AWSM" required>
+                        <option selected disabled value="">--select --</option>
+                        <% awsm.forEach((item)=> { %>
+                            <option value="<%= item.designation %>">
+                                <%= item.designation %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <button class="btn btn-primary submit-btn" data-bs-toggle="modal" data-bs-target="#autho"
+                        type="submit">Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="autho" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <span>
+                            <img class="" style="width: 80px;"
+                                src="https://cdn-icons-png.flaticon.com/512/399/399274.png?w=740&t=st=1688973640~exp=1688974240~hmac=189d8339e2017faefe7c0676db409b001a99188b148cf5ffc02d5ab3e430749d">
+                        </span>
+                        <p class="h4 p-5 mb-4">Sorry!<br /> No approved data present for AWSM id:123456</p>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <%- include("../shared/footer"); %>

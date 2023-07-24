@@ -1,0 +1,111 @@
+<%- include("../shared/header"); %>
+
+    <div class="container">
+        <div class="heading-title">
+            <h1>Replace KYC</h1>
+        </div>
+
+        <form class="needs-validation" novalidate>
+            <div class="row g-3 ">
+                <div class="env-title">
+                    <h1>Please fill the AWSM details for KYC</h1>
+                </div>
+                <div class="col-md-4">
+                    <label for="AW" class="form-label">AWSM Name<span>*</span></label>
+                    <input type="text" class="form-control" id="AName" name="AWSMName" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AW" class="form-label">Beneficiary Name<span>*</span></label>
+                    <input type="text" class="form-control" id="BName" name="Name" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Address<span>*</span></label>
+                    <input type="text" class="form-control" name="Address" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Gender<span>*</span></label>
+                    <select class="form-select" name="Gender" required>
+                        <option selected disabled value="">--select --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Date-of-birth<span>*</span></label>
+                    <input type="text" class="form-control" name="DOB" id="date" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label ">Mobile No.<span>*</span></label>
+                    <input type="tel" class="form-control numberonly" pattern="[0-9]{10}" name="Number" maxlength="10"
+                        required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Photo<span>*</span></label>
+                    <input type="file" class="form-control" name="Photo" required>
+                    <small><i class="fa fa-info-circle" aria-hidden="true"></i> Take picture by using Camera</small>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Bank Name<span>*</span></label>
+                    <input type="text" class="form-control" id="BankName" name="BankName" maxlength="16" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Bank A/C No.<span>*</span></label>
+                    <input type="text" class="form-control numberonly" name="BankAC" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">IFSC Code<span>*</span></label>
+                    <input type="text" class="form-control" name="IFSC" maxlength="11" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Bank Cheque Image<span>*</span></label>
+                    <input type="file" class="form-control" name="Cheque" required>
+                    <small><i class="fa fa-info-circle" aria-hidden="true"></i> Upload cancelled cheque copy</small>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Photo ID<span>*</span></label>
+                    <input type="file" class="form-control" name="PhotoID" required>
+                    <small><i class="fa fa-info-circle" aria-hidden="true"></i> Take picture by using Camera</small>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Biometric Image<span>*</span></label>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#BM" class="btn btn-success w-100">Click</a>
+                    <small><i class="fa fa-info-circle" aria-hidden="true"></i> Click to KYC AWSM(Capture all 10
+                        fingers)</small>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            By proceesing you agree to our <a href="" data-bs-toggle="modal" data-bs-target="#TC">Terms
+                                & Conditions.</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 mt-4">
+                    <button class="btn btn-primary submit-btn" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="TC" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Terms & Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book. </p>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <%- include("../shared/footer"); %>

@@ -1,0 +1,44 @@
+<%- include("../shared/header"); %>
+
+    <div class="container">
+        <div class="heading-title">
+            <h1>Replace KYC</h1>
+        </div>
+
+        <form action="./replacekyc-details" class="needs-validation" novalidate>
+
+            <div class="row g-3 ">
+                <div class="env-title">
+                    <h1>Please select the AW and AWSM details</h1>
+                </div>
+                <div class="col-md-6">
+                    <label for="AW" class="form-label">AW</label>
+                    <select class="form-select" id="AW" name="AW" required>
+                        <option selected disabled value="">--select --</option>
+                        <% aw.forEach((item)=> { %>
+                            <option value="<%= item.id %>">
+                                <%= item.aw_name %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="AWSM" class="form-label">AWSM</label>
+                    <select class="form-select" id="AWSM" name="AWSM" required>
+                        <option selected disabled value="">--select --</option>
+                        <% awsm.forEach((item)=> { %>
+                            <option value="<%= item.designation %>">
+                                <%= item.designation %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <button class="btn btn-primary submit-btn" type="submit">Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <%- include("../shared/footer"); %>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/datepicker.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>KYC</title>
+</head>
+
+<body>
+
+    <div class="desktop-version">
+        <div class="">
+
+            <div class="container-fluid">
+                <div class="row no-gutter">
+                    <!-- The image half -->
+                    <div class="col-md-6 d-none d-md-flex bg-image"></div>
+
+
+                    <!-- The content half -->
+                    <div class="col-md-6 bg-light">
+                        <div class="login1 d-flex align-items-center py-5">
+
+                            <!-- Demo content-->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10 col-xl-7 mx-auto">
+                                        <div class="logo1 text-center">
+                                            <a href="javascript:void(0)"><img src="./images/logo.png"></a>
+                                        </div>
+                                        <h5 class="text-muted mb-4 pt-3 text-center">Enter Your E-Mail ID</h5>
+                                        <div class="text-center">
+                                            <p>We'll send you a verification code so we Know you're real</p>
+                                        </div>
+
+                                        <form role="form text-left" action="./account/login"
+                                            class="needs-validation mainem" novalidate>
+                                            <div class="form-group mb-3">
+                                                <input id="inputEmail" type="email" name="email" placeholder="example@britindia.com"
+                                                    class="form-control log-n-f shadow-sm px-4" required>
+                                            </div>
+                                            <button class="Glowsticky mt-3">GET OTP</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div><!-- End -->
+
+                        </div>
+                    </div><!-- End -->
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="mobile-version">
+        <h1>Please open desktop version</h1>
+    </div>
+
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/datepicker.js"></script>
+
+
+
+    <!-- <script type="text/javascript">
+$(document).ready(function(){
+ 
+  $('#date').datepicker({
+    format: "yy-mm-dd",
+    startDate: new Date('2022-7-15'),
+    endDate: new Date('2022-8-15')
+  });
+
+});
+</script> -->
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            "use strict";
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll(".needs-validation");
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener(
+                    "submit",
+                    function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+
+                        form.classList.add("was-validated");
+                    },
+                    false
+                );
+            });
+        })();
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".numberonly").keypress(function (e) {
+                var charCode = e.which ? e.which : event.keyCode;
+
+                if (String.fromCharCode(charCode).match(/[^0-9]/g)) return false;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

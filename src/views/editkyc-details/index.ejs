@@ -1,0 +1,123 @@
+<%- include("../shared/header"); %>
+
+    <div class="container">
+        <div class="heading-title">
+            <h1>Edit KYC</h1>
+        </div>
+
+        <form class="needs-validation" novalidate>
+            <div class="row g-3 ">
+                <div class="env-title">
+                    <h1>Please fill the AWSM details for KYC</h1>
+                </div>
+                <div class="col-md-4">
+                    <label for="AW" class="form-label">BeneficiaryName<span>*</span></label>
+                    <input type="text" class="form-control" name="BeneficiaryName" id="BName" value="Test" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Address<span>*</span></label>
+                    <input type="text" class="form-control" name="Address" value="D-23, WST Noide delhi" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Gender<span>*</span></label>
+                    <select class="form-select" name="Gender" required>
+                        <option selected disabled value="">--select --</option>
+                        <option value="Male" selected>Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Date-of-birth<span>*</span></label>
+                    <input type="text" class="form-control" name="DOB" id="date" value="7/12/2023" autocomplete="off"
+                        required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Mobile No.<span>*</span></label>
+                    <input type="tel" class="form-control  numberonly" name="Number" pattern="[0-9]{10}" maxlength="10"
+                        value="1234567890" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Photo<span>*</span></label>
+                    <input type="file" class="form-control" name="Photo" required>
+                    <small><i class="fa fa-info-circle" aria-hidden="true"></i> Take picture by using Camera</small>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Bank Name<span>*</span></label>
+                    <input type="text" class="form-control" id="BankName" name="BankName" value="DT" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Bank A/C No.<span>*</span></label>
+                    <input type="text" class="form-control numberonly" name="BankAC" maxlength="16"
+                        value="1234567890123456" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">IFSC Code<span>*</span></label>
+                    <input type="text" class="form-control" name="IFSC" maxlength="11" value="PNBA1230952" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label">Bank Cheque Image<span>*</span></label>
+                    <input type="file" class="form-control" name="Cheque" required>
+                    <small><i class="fa fa-info-circle" aria-hidden="true"></i> Upload cancelled cheque copy</small>
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label d-flex">Photo ID<span>*</span></label>
+                    <img class="w-25" src="assets/images/user.png">
+                </div>
+                <div class="col-md-4">
+                    <label for="AWSM" class="form-label d-flex">Biometric Image<span>*</span></label>
+                    <img class="w-25"
+                        src="https://img.freepik.com/premium-vector/biometric-scanning-flat-icon-design_203633-10773.jpg?w=740">
+                </div>
+
+                <div class="col-12 mt-4">
+                    <button class="btn btn-primary submit-btn" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="TC" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Terms & Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the
+                        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                        type
+                        and scrambled it to make a type specimen book. </p>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
+                        when
+                        looking at its layout.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="BM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <span><img class="" style="width: 160px;"
+                                src="https://img.freepik.com/premium-vector/biometric-scanning-flat-icon-design_203633-10773.jpg?w=740">
+                        </span>
+                        <p class="h4">Please connect biometric device</p>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <%- include("../shared/footer"); %>

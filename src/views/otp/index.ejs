@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- CSS -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../../css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/datepicker.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>KYC</title>
+</head>
+
+<body>
+
+  <div class="desktop-version">
+    <div class="">
+      <div class="container-fluid">
+        <div class="row no-gutter">
+          <!-- The image half -->
+          <div class="col-md-6 d-none d-md-flex bg-image"></div>
+          <!-- The content half -->
+          <div class="col-md-6 bg-light">
+            <div class="login1 d-flex align-items-center py-5">
+              <!-- Demo content-->
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-10 col-xl-7 mx-auto">
+                    <div class="logo1 text-center">
+                      <a href="javascript:void(0)"><img src="../../images/logo.png"></a>
+                    </div>
+                    <h5 class="text-muted mb-4 pt-3 text-center">Enter OTP</h5>
+
+                    <div class="text-center">
+                      <p>4 Digit code has been sent to your e-mail ID android@example.com</p>
+                    </div>
+
+                    <form class="otp text-center mt-2 digit-group" action="./otp-submit">
+
+                      <input id="digit-1" placeholder="*" data-next="digit-2" type="tel" maxlength=1 name="digit_1"
+                        required>
+                      <input id="digit-2" placeholder="*" data-next="digit-3" data-previous="digit-1" type="tel"
+                        maxlength=1 name="digit_2" required>
+                      <input id="digit-3" placeholder="*" data-next="digit-4" data-previous="digit-2" type="tel"
+                        maxlength=1 name="digit_3" required>
+
+                      <input id="digit-4" placeholder="*" type="tel" data-previous="digit-3" maxlength=1 name="digit_4"
+                        required>
+
+                      <button class="Glowsticky mt-4">Submit</button>
+
+                      <p class="pt-4 text-center">OTP Expires in 15:00 mins</p>
+                    </form>
+                  </div>
+                </div>
+              </div><!-- End -->
+            </div>
+          </div><!-- End -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-version">
+    <h1>Please open desktop version</h1>
+  </div>
+
+
+  <script src="../../js/jquery-3.6.0.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/datepicker.js"></script>
+
+
+  <script>
+    $('.digit-group').find('input').each(function () {
+      $(this).attr('maxlength', 1);
+      $(this).on('keyup', function (e) {
+        var parent = $($(this).parent());
+
+        if (e.keyCode === 8 || e.keyCode === 37) {
+          var prev = parent.find('input#' + $(this).data('previous'));
+
+          if (prev.length) {
+            $(prev).select();
+          }
+        } else if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
+          var next = parent.find('input#' + $(this).data('next'));
+
+          if (next.length) {
+            $(next).select();
+          } else {
+            if (parent.data('autosubmit')) {
+              parent.submit();
+            }
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

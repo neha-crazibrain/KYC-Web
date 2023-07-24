@@ -1,0 +1,265 @@
+<%- include("../shared/header"); %>
+
+    <div class="container">
+        <div class="heading-title">
+            <h1>Report</h1>
+        </div>
+
+        <form action="#" class="needs-validation" novalidate>
+
+            <div class="row g-3 justify-content-between  mb-4">
+
+                <div class="col-md-6">
+                    <label>Report</label>
+                    <select class="form-select" id="target" name="AW" required>
+                        <option value="select">Select</option>
+                        <option value="All">All KYC's</option>
+                        <option value="Authenticated">Authenticated</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Success">Success</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+
+                <div class="col-md-1 d-flex justify-content-end">
+                    <label><a href="" data-bs-toggle="modal" data-bs-target="#filter"><i
+                                class="fa fa-filter fs-2 text-dark" aria-hidden="true"></i></a>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <div id="All" class="inv">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">S.No</th>
+                            <th scope="col">AWSm ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:green !important;'><b>Approved</b></span></td>
+                        <tr>
+                            <td>2</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:blue !important;'><b>Authenticated</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:red !important;'><b>Rejected</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:green !important;'><b>Success</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:#dbea0b !important;'><b>Pending</b></span></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div id="Authenticated" class="inv">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">S.No</th>
+                            <th scope="col">AWSm ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td>1</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:blue !important;'><b>Authenticated</b></span></td>
+                        <tr>
+                            <td>2</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:blue !important;'><b>Authenticated</b></span></td>
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div id="Rejected" class="inv">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">S.No</th>
+                            <th scope="col">AWSm ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td>1</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:red !important;'><b>Rejected</b></span></td>
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div id="Success" class="inv">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">S.No</th>
+                            <th scope="col">AWSm ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td>1</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:green !important;'><b>Success</b></span></td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div id="Pending" class="inv">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">S.No</th>
+                            <th scope="col">AWSm ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td>1</td>
+                            <td>123334</td>
+                            <td>Test</td>
+                            <td><span style='color:#dbea0b !important;'><b>Pending</b></span></td>
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+            </div>
+    </div>
+
+    <div class="modal fade" id="filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>Select Filters</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group d-flex align-items-center">
+                                    <i class="fa fa-calendar" aria-hidden="true" style="
+                            background: #e1e0e0;
+                            padding: 8px 8px;
+                            font-size: 22px;
+                            border-radius: 6px 0px 0px 6px;
+                            margin-right: -2px;
+                            color: #e01b25;
+                        "></i>
+                                    <input type="text" class="form-control" id="date" placeholder="From Date"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group d-flex align-items-center">
+                                    <i class="fa fa-calendar" aria-hidden="true" style="
+                            background: #e1e0e0;
+                            padding: 8px 8px;
+                            font-size: 22px;
+                            border-radius: 6px 0px 0px 6px;
+                            margin-right: -2px;
+                            color: #e01b25;
+                        "></i>
+                                    <input type="text" class="form-control" id="date2" placeholder="To Date"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-warning">Reset</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        document
+            .getElementById('target')
+            .addEventListener('change', function () {
+                'use strict';
+                var vis = document.querySelector('.vis'),
+                    target = document.getElementById(this.value);
+                if (vis !== null) {
+                    vis.className = 'inv';
+                }
+                if (target !== null) {
+                    target.className = 'vis';
+                }
+            });
+    </script>
+
+
+    <%- include("../shared/footer"); %>
