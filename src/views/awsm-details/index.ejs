@@ -5,7 +5,8 @@
             <h1>KYC</h1>
         </div>
 
-        <form class="needs-validation" novalidate>
+        <form action="./awsm-details/add" class="needs-validation" novalidate method="post"
+            enctype="multipart/form-data">
             <div class="row g-3 ">
                 <div class="env-title">
                     <h1>Please fill the AWSM details for KYC</h1>
@@ -38,7 +39,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Photo<span>*</span></label>
-                    <input type="file" class="form-control" name="Photo" required>
+                    <input type="file" class="form-control" name="Photo" multiple required>
                     <small><i class="fa fa-info-circle" aria-hidden="true"></i> Take picture by using Camera</small>
                 </div>
                 <div class="col-md-4">
@@ -55,12 +56,12 @@
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Bank Cheque Image<span>*</span></label>
-                    <input type="file" class="form-control" name="Cheque" required>
+                    <input type="file" class="form-control" name="Cheque" multiple required>
                     <small><i class="fa fa-info-circle" aria-hidden="true"></i> Upload cancelled cheque copy</small>
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Photo ID<span>*</span></label>
-                    <input type="file" class="form-control" name="PhotoID" required>
+                    <input type="file" class="form-control" name="PhotoID" multiple required>
                     <small><i class="fa fa-info-circle" aria-hidden="true"></i> Take picture by using Camera</small>
                 </div>
                 <div class="col-md-4">

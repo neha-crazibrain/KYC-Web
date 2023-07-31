@@ -15,3 +15,14 @@ const createToken = (userData) => {
 }
 
 module.exports = { createToken }
+
+
+
+// fs.access("./uploads", (error) => {
+//   if (error) {
+//     fs.mkdirSync("./uploads");
+//   }
+// });
+// const { buffer, originalname } = req.file;
+// const timestamp = new Date().toISOString();
+// const ref = `${timestamp}-${originalname}.webp`;

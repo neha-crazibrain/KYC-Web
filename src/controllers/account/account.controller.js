@@ -1,6 +1,6 @@
 const { sendOtpOnMail } = require("../../utils/nodemailer");
 const { generateOTP } = require("../../utils/otp.genrate");
-const { insertQuery, selectQuery, updateQuery } = require("../../models/account.model");
+const { selectQuery } = require("../../models/employee.model");
 const { createToken } = require("../../utils/jwt");
 
 
@@ -12,6 +12,12 @@ const otpStorage = {};
 
 const loginView = async (req, res, next) => {
 
+  let CheckEmployee = await selectQuery(req.query);
+
+  if (CheckEmployee.length == 0) {
+    return res.redirect('/account')
+  }
+  
   //OTP SEND 
   let otp = generateOTP();
   await sendOtpOnMail(req.query.email, otp);
@@ -22,7 +28,7 @@ const loginView = async (req, res, next) => {
   const expiryTimeInMilliseconds = 1 * 24 * 60 * 60 * 1000;  // for 1 day
 
   res.cookie('token', token, { expires: new Date(Date.now() + expiryTimeInMilliseconds), httpOnly: true });
-  res.render('otp')
+  return res.render('otp')
 }
 
 const otpSubmitView = async (req, res, next) => {
