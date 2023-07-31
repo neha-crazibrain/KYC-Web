@@ -47,8 +47,8 @@ const insertQuery = async (data) => {
   //   ( '${'FRESH'}', '${data.ase_email_id}', '${data.ase_name}', '${data.saleaman_id}', '${data.salesman_name}', '${data.aw_id}' , '${data.aw_name}', '${data.BeneficiaryName}')`;
 
   let query = `INSERT INTO kyc( 
-    kyc_type, beneficiary_name, address, bank_number, ifsc_code, cheque_image, bank_name, photo_id_image, mobile_no, gender, dob) VALUES 
-    ( '${'FRESH'}', '${data.BeneficiaryName}', '${data.Address}', '${data.BankAC}', '${data.IFSC}', '${data.Cheque}' , '${data.BankName}', '${data.PhotoID}', '${data.Number}', '${data.Gender}', '${data.DOB}')`;
+    kyc_type, awsm_id, beneficiary_name, address, salesman_photo, bank_number, ifsc_code, cheque_image, bank_name, photo_id_image, mobile_no, gender, dob) VALUES 
+    ( '${'FRESH'}', '${data.awsm_id}', '${data.BeneficiaryName}', '${data.Address}', '${data.Photo}', '${data.BankAC}', '${data.IFSC}', '${data.Cheque}' , '${data.BankName}', '${data.PhotoID}', '${data.Number}', '${data.Gender}', '${data.DOB}')`;
 
 
   return new Promise((resolve, reject) => {
@@ -87,4 +87,21 @@ const selecKycByAWSM = async (awsm_id) => {
   })
 }
 
-module.exports = { selectQueryAW, selectFromEmployee, insertQuery, selectFilterKyc, selectAllKyc, selecKycByAWSM }
+const updateReKycModel = async (data) => {
+  const updateQuery = `UPDATE kyc SET kyc_type = ?, beneficiary_name = ?, address = ?, salesman_photo = ?, bank_number = ?,  ifsc_code = ?, cheque_image = ?, bank_name = ?, photo_id_image = ?, mobile_no = ?, gender = ?, dob = ?, kyc_status = ? WHERE id = ?`;
+
+  const updateField = ['rekyc', data.BeneficiaryName, data.Address, data.Photo, data.BankAC, data.IFSC, data.Cheque, data.BankName, data.PhotoID, data.Number, data.Gender, data.DOB, "accept", data.kyc_id];
+
+
+  return new Promise((resolve, reject) => {
+    dbCon.query(updateQuery, updateField, (error, result) => {
+      if (error) {
+        return reject(error)
+      }
+      return resolve(result);
+    });
+  })
+
+}
+
+module.exports = { selectQueryAW, selectFromEmployee, insertQuery, selectFilterKyc, selectAllKyc, selecKycByAWSM, updateReKycModel }

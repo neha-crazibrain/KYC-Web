@@ -5,6 +5,7 @@ const { auth } = require('../../utils/auth');
 const router = express.Router();
 
 router.route('/').get(auth, rekycOpenController.rekycOpenView);
+router.route('/update').post(rekycOpenController.updateReKyc);
 
 
-module.exports = router;
+module.exports = router;  

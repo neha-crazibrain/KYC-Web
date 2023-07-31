@@ -7,8 +7,30 @@
 
     <form class="needs-validation" novalidate>
       <div class="row g-3 ">
+        <% cardsData.forEach(card=> { %>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text"><strong>AWSM ID:</strong>
+                  <%= card.id %>
+                </p>
+                <p class="card-text"><strong>Name:</strong>
+                  <%= card.beneficiary_name %>
+                </p>
+              </div>
+              <div class="card-footer text-muted d-flex justify-content-between">
+                <p class="m-0 text-danger">
+                  <%= card.kyc_rejection_reason %>
+                </p>
+                <a href="http://localhost:4200/rekyc-open/?kyc_id=<%= card.id %>&awsm_id=<%= card.awsm_id %>">Re-KYC</a>
+              </div>
+            </div>
+          </div>
 
-        <div class="col-sm-6">
+          <% }) %>
+
+          
+            <!-- <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
               <p class="card-text"><strong>AWSM ID :</strong> 8851360214</p>
@@ -79,7 +101,7 @@
               <a href="">Re-KYC</a>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
       </div>
