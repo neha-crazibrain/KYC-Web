@@ -6,4 +6,5 @@ const router = express.Router();
 
 router.route('/').get(auth, rekycController.rekycView);
 
+
 module.exports = router;

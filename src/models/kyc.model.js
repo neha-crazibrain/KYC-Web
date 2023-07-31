@@ -1,16 +1,43 @@
 const dbCon = require('../config/db');
 
-// const selectQuery = async () => {
-//   let query = `SELECT * FROM hierarchy`;
-//   return new Promise((resolve, reject) => {
-//     dbCon.query(query, (error, result) => {
-//       if (error) {
-//         return reject(error)
-//       }
-//       return resolve(result);
-//     });
-//   })
-// }
+
+const selectFromEmployee = async () => {
+  let query = `SELECT * FROM employee`;
+  return new Promise((resolve, reject) => {
+    dbCon.query(query, (error, result) => {
+      if (error) {
+        return reject(error)
+      }
+      return resolve(result);
+    });
+  })
+}
+
+const selectQueryAW = async () => {
+  let query = `SELECT * FROM hierarchy`;
+  return new Promise((resolve, reject) => {
+    dbCon.query(query, (error, result) => {
+      if (error) {
+        return reject(error)
+      }
+      return resolve(result);
+    });
+  })
+}
+
+
+
+const selectAllKyc = async () => {
+  let query = `SELECT * FROM kyc`;
+  return new Promise((resolve, reject) => {
+    dbCon.query(query, (error, result) => {
+      if (error) {
+        return reject(error)
+      }
+      return resolve(result);
+    });
+  })
+}
 
 
 const insertQuery = async (data) => {
@@ -36,16 +63,28 @@ const insertQuery = async (data) => {
 
 
 
-// const selectFromEmployee = async () => {
-//   let query = `SELECT * FROM employee`;
-//   return new Promise((resolve, reject) => {
-//     dbCon.query(query, (error, result) => {
-//       if (error) {
-//         return reject(error)
-//       }
-//       return resolve(result);
-//     });
-//   })
-// }
+const selectFilterKyc = async () => {
+  let query = `SELECT * FROM kyc WHERE kyc_status = 'reject'`;
+  return new Promise((resolve, reject) => {
+    dbCon.query(query, (error, result) => {
+      if (error) {
+        return reject(error)
+      }
+      return resolve(result);
+    });
+  })
+}
 
-module.exports = { insertQuery }
+const selecKycByAWSM = async (awsm_id) => {
+  let query = `SELECT * FROM kyc WHERE id = '${awsm_id}'`;
+  return new Promise((resolve, reject) => {
+    dbCon.query(query, (error, result) => {
+      if (error) {
+        return reject(error)
+      }
+      return resolve(result);
+    });
+  })
+}
+
+module.exports = { selectQueryAW, selectFromEmployee, insertQuery, selectFilterKyc, selectAllKyc, selecKycByAWSM }

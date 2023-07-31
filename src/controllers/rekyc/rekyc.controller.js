@@ -1,5 +1,9 @@
+const { selectFilterKyc } = require("../../models/kyc.model");
+
+
 const rekycView = async (req, res, next) => {
-  res.render('rekyc')
+  let cardsData = await selectFilterKyc();
+  res.render('rekyc', { cardsData: cardsData })
 }
 
 module.exports = {
