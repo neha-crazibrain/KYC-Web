@@ -1,0 +1,25 @@
+<div>
+    <% if (typeof success !=="undefined" ) { %>
+        <div class="alert success">
+            <p>
+                <%= success %>
+            </p>
+        </div>
+        <% } %>
+            <% if (typeof error !=="undefined" ) { %>
+                <div class="alert error">
+                    <p>
+                        <%= error %>
+                    </p>
+                </div>
+                <% } %>
+</div>
+
+<script>
+    const messageElement = document.querySelector('.alert');
+    if (messageElement) {
+        setTimeout(() => {
+            messageElement.style.display = 'none';
+        }, 5000);
+    }
+</script>

@@ -8,6 +8,12 @@ require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const logger = require("morgan");
 
+const session = require('express-session')
+app.use(session({
+  secret: 'secret-key',
+  saveUninitialized: true,
+  resave: true
+}))
 
 const adminRoute = require("./src/routes");
 const port = 4200;

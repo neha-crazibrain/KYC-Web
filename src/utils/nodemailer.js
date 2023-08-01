@@ -24,7 +24,6 @@ const sendOtpOnMail = async (Email, OTP = 99) => {
             console.log(error);
             return error;
         } else {
-            console.log({message: 'mail send successfully!'});
             return info.response;
         }
     });

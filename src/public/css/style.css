@@ -806,3 +806,18 @@ text-align: center;
 border-radius: 12px;
 border: 1px solid steelblue;
 }
+
+
+
+
+.alert {
+  background-color: green;
+  padding: 10px;
+  width: 25%;
+  text-align: center;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  border-radius: 1rem;
+  color: black;
+}

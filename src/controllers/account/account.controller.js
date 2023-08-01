@@ -5,7 +5,8 @@ const { createToken } = require("../../utils/jwt");
 
 
 const mainView = async (req, res, next) => {
-  res.render('account')
+  res.render('account', { success: req.session.success });
+  delete req.session.success;
 }
 
 const otpStorage = {};
@@ -15,9 +16,10 @@ const loginView = async (req, res, next) => {
   let CheckEmployee = await selectQuery(req.query);
 
   if (CheckEmployee.length == 0) {
+    req.session.success = 'Employee not exist!';
     return res.redirect('/account')
   }
-  
+
   //OTP SEND 
   let otp = generateOTP();
   await sendOtpOnMail(req.query.email, otp);
@@ -38,7 +40,7 @@ const otpSubmitView = async (req, res, next) => {
   if (storedOTP === userOTP) {
     res.redirect('/kyc')
   } else {
-    console.log('you pass wrong otp!');
+    req.session.success = 'wrong otp!';
     res.redirect('/account');
   }
 }

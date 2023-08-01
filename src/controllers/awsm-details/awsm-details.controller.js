@@ -2,7 +2,8 @@ const { insertQuery } = require("../../models/kyc.model");
 const jwt = require('jsonwebtoken');
 
 const awsmDetailsView = async (req, res, next) => {
-  res.render('awsm-details');
+  res.render('awsm-details', { success: req.session.success });
+  delete req.session.success;
 }
 
 const addAWSMDetails = async (req, res, next) => {
@@ -15,6 +16,7 @@ const addAWSMDetails = async (req, res, next) => {
     req.body.Cheque = req.files['Cheque'][0].filename;
     req.body.PhotoID = req.files['PhotoID'][0].filename;
     await insertQuery(req.body)
+    req.session.success = 'Details has submitted successfully!';
     return res.redirect('/awsm-details');
   }
   catch (error) {
