@@ -10,6 +10,7 @@ const replaceKycRoutes = require("./replacekyc/replacekyc.route");
 const reportRoutes = require("./report/report.route");
 const accountRoutes = require("./account/account.route");
 const rekycOpenRoutes = require("./rekyc-open/rekyc-open.route");
+const apiRoutes = require("./api/api.route");
 
 
 
@@ -59,6 +60,10 @@ const routes = [
     {
         path: '/rekyc-open',
         route: rekycOpenRoutes
+    },
+    {
+        path: '/api',
+        route: apiRoutes
     }
 ];
 routes.forEach((route) => {
