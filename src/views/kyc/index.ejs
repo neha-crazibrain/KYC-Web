@@ -14,9 +14,9 @@
                 <div class="col-md-6">
                     <label for="AW" class="form-label">AW</label>
                     <select class="form-select" id="AW" name="AW" required>
-                        <option selected disabled value="">--select --</option>
+                        <option selected disabled>--select --</option>
                         <% aw.forEach((item)=> { %>
-                            <option value="<%= item.id %>">
+                            <option value="<%= item.aw_code %>">
                                 <%= item.aw_name %>
                             </option>
                             <% }); %>
@@ -25,12 +25,7 @@
                 <div class="col-md-6">
                     <label for="AWSM" class="form-label">AWSM</label>
                     <select class="form-select" id="AWSM" name="AWSM" required>
-                        <option selected disabled value="">--select --</option>
-                        <% awsm.forEach((item)=> { %>
-                            <option value="<%= item.designation %>">
-                                <%= item.designation %>
-                            </option>
-                            <% }); %>
+                        <option selected disabled>--select --</option>
                     </select>
                 </div>
 
@@ -38,6 +33,31 @@
                     <button class="btn btn-primary submit-btn" type="submit">Next</button>
                 </div>
             </div>
+
+
+            <script>
+                function handleAWChange() {
+                    const selectedAW = document.getElementById('AW').value;
+                    const awsmSelect = document.getElementById('AWSM');
+
+                    awsmSelect.innerHTML = '<option selected disabled value="">--select --</option>';
+
+                    fetch(`http://localhost:4200/kyc/awsm?selectedAW=${selectedAW}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+                           
+                            data.forEach((item) => {
+                                const option = document.createElement('option');
+                                option.value = item.awsm_code;
+                                option.text = item.awsm_code;
+                                awsmSelect.appendChild(option);
+                            });
+                        });
+                }
+
+                const linkNode = document.querySelector('#AW');
+                linkNode.addEventListener('change', handleAWChange);
+            </script>
         </form>
     </div>
 

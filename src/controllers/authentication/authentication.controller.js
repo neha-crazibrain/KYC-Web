@@ -1,7 +1,7 @@
-const { selectQueryAW, selectFromEmployee } = require("../../models/kyc.model");
+const { selectQueryAW, selectFromAWSM } = require("../../models/kyc.model");
 
 const authenticationView = async (req, res, next) => {
-  let AWSMList = await selectFromEmployee();
+  let AWSMList = await selectFromAWSM();
   let AWList = await selectQueryAW();
   res.render('authentication', { aw: AWList, awsm: AWSMList })
 }

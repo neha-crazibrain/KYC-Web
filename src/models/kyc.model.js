@@ -1,8 +1,20 @@
 const dbCon = require('../config/db');
 
 
-const selectFromEmployee = async () => {
-  let query = `SELECT * FROM employee`;
+// const selectFromEmployee = async () => {
+//   let query = `SELECT * FROM employee`;
+//   return new Promise((resolve, reject) => {
+//     dbCon.query(query, (error, result) => {
+//       if (error) {
+//         return reject(error)
+//       }
+//       return resolve(result);
+//     });
+//   })
+// }
+
+const selectFromAWSM = async () => {
+  let query = `SELECT * FROM awsm_details`;
   return new Promise((resolve, reject) => {
     dbCon.query(query, (error, result) => {
       if (error) {
@@ -13,8 +25,31 @@ const selectFromEmployee = async () => {
   })
 }
 
+const selectFilterAWSM = async (aw_code) => {
+  let query = `SELECT * FROM awsm_details WHERE aw_code = '${aw_code}'`;
+  return new Promise((resolve, reject) => {
+    dbCon.query(query, (error, result) => {
+      if (error) {
+        return reject(error)
+      }
+      return resolve(result);
+    });
+  })
+}
+
+// const selectQueryAW = async () => {
+//   let query = `SELECT * FROM hierarchy`;
+//   return new Promise((resolve, reject) => {
+//     dbCon.query(query, (error, result) => {
+//       if (error) {
+//         return reject(error)
+//       }
+//       return resolve(result);
+//     });
+//   })
+// }
 const selectQueryAW = async () => {
-  let query = `SELECT * FROM hierarchy`;
+  let query = `SELECT * FROM aw_details`;
   return new Promise((resolve, reject) => {
     dbCon.query(query, (error, result) => {
       if (error) {
@@ -104,4 +139,4 @@ const updateReKycModel = async (data) => {
 
 }
 
-module.exports = { selectQueryAW, selectFromEmployee, insertQuery, selectFilterKyc, selectAllKyc, selecKycByAWSM, updateReKycModel }
+module.exports = { selectQueryAW, selectFilterAWSM, selectFromAWSM, insertQuery, selectFilterKyc, selectAllKyc, selecKycByAWSM, updateReKycModel }
