@@ -4,9 +4,8 @@
             <div class="heading-title">
                 <h1>KYC</h1>
             </div>
-
-            <form action="./awsm-details/add" class="needs-validation" novalidate method="post"
-                enctype="multipart/form-data">
+            <form action="./awsm-details/add?AW=<%= data.AW %>&AWSM=<%= data.AWSM %>" class="needs-validation"
+                novalidate method="post" enctype="multipart/form-data">
                 <div class="row g-3 ">
                     <div class="env-title">
                         <h1>Please fill the AWSM details for KYC</h1>
@@ -30,7 +29,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="AWSM" class="form-label">Date-of-birth<span>*</span></label>
-                        <input type="text" class="form-control" name="DOB" id="date" autocomplete="off" required>
+                        <input type="date" class="form-control" name="DOB" id="date" autocomplete="off" required>
                     </div>
                     <div class="col-md-4">
                         <label for="AWSM" class="form-label">Mobile No.<span>*</span></label>

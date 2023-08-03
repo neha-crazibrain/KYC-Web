@@ -12,7 +12,7 @@
             <div class="card">
               <div class="card-body">
                 <p class="card-text"><strong>AWSM ID:</strong>
-                  <%= card.id %>
+                  <%= card.awsm_code %>
                 </p>
                 <p class="card-text"><strong>Name:</strong>
                   <%= card.beneficiary_name %>
@@ -20,9 +20,9 @@
               </div>
               <div class="card-footer text-muted d-flex justify-content-between">
                 <p class="m-0 text-danger">
-                  <%= card.kyc_rejection_reason %>
+                  <%= card.wip_remarks %>
                 </p>
-                <a href="rekyc-open?kyc_id=<%= card.id %>&awsm_id=<%= card.awsm_id %>">Re-KYC</a>
+                <a href="rekyc-open?kyc_id=<%= card.kyc_id %>&awsm_id=<%= card.awsm_code %>">Re-KYC</a>
               </div>
             </div>
           </div>

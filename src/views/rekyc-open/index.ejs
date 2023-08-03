@@ -32,8 +32,8 @@
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Date-of-birth<span>*</span></label>
-                    <input type="text" class="form-control" name="DOB" id="date" autocomplete="off" required
-                        value="<%=kycData.dob %>" />
+                    <input type="date" class="form-control" name="DOB" id="date" autocomplete="off" required
+                        value="<%= kycData.dob.toISOString().slice(0, 10) %>" />
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Mobile No.<span>*</span></label>
@@ -53,7 +53,7 @@
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Bank A/C No.<span>*</span></label>
                     <input type="text" class="form-control numberonly" name="BankAC" maxlength="16" required
-                        value="<%=kycData.bank_number %>" />
+                        value="<%=kycData.bank_account_no %>" />
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">IFSC Code<span>*</span></label>

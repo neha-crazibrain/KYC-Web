@@ -1,6 +1,6 @@
 const { sendOtpOnMail } = require("../../utils/nodemailer");
 const { generateOTP } = require("../../utils/otp.genrate");
-const { selectQuery } = require("../../models/employee.model");
+const { selectQuery } = require("../../models/ase.model");
 const { createToken } = require("../../utils/jwt");
 
 
@@ -16,7 +16,7 @@ const loginView = async (req, res, next) => {
   let CheckEmployee = await selectQuery(req.query);
 
   if (CheckEmployee.length == 0) {
-    req.session.success = 'Employee not exist!';
+    req.session.success = 'ase employee not exist!';
     return res.redirect('/account')
   }
 
