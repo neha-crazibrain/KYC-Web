@@ -35,6 +35,7 @@ const selectFilterAWSM = async (aw_code) => {
 //     });
 //   })
 // }
+
 const selectQueryAW = async () => {
   let query = `SELECT * FROM aw_details`;
   return new Promise((resolve, reject) => {
@@ -46,8 +47,6 @@ const selectQueryAW = async () => {
     });
   })
 }
-
-
 
 const selectAllKyc = async () => {
   let query = `SELECT * FROM kyc_details`;
@@ -61,18 +60,7 @@ const selectAllKyc = async () => {
   })
 }
 
-
 const insertQuery = async (data) => {
-
-  // let query = `INSERT INTO kyc( 
-  //   kyc_type, ase_email_id, ase_name, saleaman_id, salesman_name, aw_id, aw_name, beneficiary_name, state_name, city_name, address, salesman_photo, bank_number, ifsc_code, cheque_image, bank_name, photo_id_image, mobile_no, gender, dob, kyc_method, validatiion_calling_attempt, validation_calling_status, validation_calling_remark, channel_type, kyc_status, kyc_rejection_reason, remark) VALUES 
-  //   ( '${'FRESH'}', '${data.ase_email_id}', '${data.ase_name}', '${data.saleaman_id}', '${data.salesman_name}', '${data.aw_id}' , '${data.aw_name}', '${data.BeneficiaryName}')`;
-
-  // let query = `INSERT INTO kyc_details( 
-  //   kyc_type, awsm_id, beneficiary_name, address, salesman_photo, bank_number, ifsc_code, cheque_image, bank_name, photo_id_image, mobile_no, gender, dob) VALUES 
-  //   ( '${'FRESH'}', '${data.awsm_id}', '${data.BeneficiaryName}', '${data.Address}', '${data.Photo}', '${data.BankAC}', '${data.IFSC}', '${data.Cheque}' , '${data.BankName}', '${data.PhotoID}', '${data.Number}', '${data.Gender}', '${data.DOB}')`;
-
-
   const query = `INSERT INTO kyc_details(ase_email, aw_code, awsm_code,
         bank_account_no, address, bank_cheque, bank_name, beneficiary_name,
         ifsc_code, mobile_no, photo_id, photo, status, kyc_type, gender, dob, created_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
@@ -83,19 +71,14 @@ const insertQuery = async (data) => {
   ];
 
   return new Promise((resolve, reject) => {
-    console.log("**********************db 222 **********************");
     dbCon.query(query, values, (error, result) => {
       if (error) {
-        console.log("insert error**********************", error);
         return reject(error);
       }
-      console.log("insert done********************");
       return resolve(result);
     });
   });
 }
-
-
 
 const selectFilterKyc = async () => {
   let query = `SELECT * FROM kyc_details WHERE status = 'REJECTED'`;
@@ -124,7 +107,7 @@ const selecKycByAWSM = async (kyc_id) => {
 const updateReKycModel = async (data) => {
   const updateQuery = `UPDATE kyc_details SET kyc_type = ?, beneficiary_name = ?, address = ?, photo = ?, bank_account_no = ?,  ifsc_code = ?, bank_cheque = ?, bank_name = ?, photo_id = ?, mobile_no = ?, gender = ?, dob = ?, status = ? WHERE kyc_id = ?`;
 
-  const updateField = ['rekyc', data.BeneficiaryName, data.Address, data.Photo, data.BankAC, data.IFSC, data.Cheque, data.BankName, data.PhotoID, data.Number, data.Gender, data.DOB, "SUCCESS", data.kyc_id];
+  const updateField = ['rekyc', data.beneficiary_name, data.address, data.photo, data.bank_account_no, data.ifsc_code, data.bank_cheque, data.bank_name, data.photo_id, data.mobile_no, data.gender, data.dob, "SUCCESS", data.kyc_id];
 
 
   return new Promise((resolve, reject) => {

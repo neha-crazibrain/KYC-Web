@@ -1,6 +1,6 @@
 function handleAWChange() {
-  const selectedAW = document.getElementById('AW').value;
-  const awsmSelect = document.getElementById('AWSM');
+  const selectedAW = document.getElementById('aw_code').value;
+  const awsmSelect = document.getElementById('awsm_code');
 
   awsmSelect.innerHTML = '<option selected disabled value="">--select --</option>';
 
@@ -16,7 +16,7 @@ function handleAWChange() {
       });
     });
 }
-const linkNode = document.querySelector('#AW');
+const linkNode = document.querySelector('#aw_code');
 linkNode.addEventListener('change', handleAWChange);
 
 

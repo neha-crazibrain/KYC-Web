@@ -14,16 +14,16 @@
 
                 <div class="col-md-4">
                     <label for="AW" class="form-label">BeneficiaryName<span>*</span></label>
-                    <input type="text" class="form-control" name="BeneficiaryName" id="BName" required
+                    <input type="text" class="form-control" name="beneficiary_name" id="BName" required
                         value="<%= kycData.beneficiary_name%>" />
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Address<span>*</span></label>
-                    <input type="text" class="form-control" name="Address" required value="<%=kycData.address %>">
+                    <input type="text" class="form-control" name="address" required value="<%=kycData.address %>">
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Gender<span>*</span></label>
-                    <select class="form-select" name="Gender" required>
+                    <select class="form-select" name="gender" required>
                         <option disabled value="">--select --</option>
                         <option value="Male" <%=kycData.gender==='Male' ? 'selected' : '' %>>Male</option>
                         <option value="Female" <%=kycData.gender==='Female' ? 'selected' : '' %>>Female</option>
@@ -32,42 +32,42 @@
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Date-of-birth<span>*</span></label>
-                    <input type="date" class="form-control" name="DOB" id="date" autocomplete="off" required
-                        value="<%= kycData.dob.toISOString().slice(0, 10) %>" />
+                    <input type="date" class="form-control" name="dob" id="date" autocomplete="off" required 
+                    value="<%= kycData.dob.toISOString().slice(0, 10) %>"/>
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Mobile No.<span>*</span></label>
-                    <input type="tel" class="form-control  numberonly" name="Number" pattern="[0-9]{10}" maxlength="10"
-                        required value="<%=kycData.mobile_no %>" />
+                    <input type="tel" class="form-control  numberonly" name="mobile_no" pattern="[0-9]{10}"
+                        maxlength="10" required value="<%=kycData.mobile_no %>" />
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Photo<span>*</span></label>
-                    <input type="file" class="form-control" name="Photo" multiple />
+                    <input type="file" class="form-control" name="photo" multiple />
                     <small><i class="fa fa-info-circle" aria-hidden="true"></i> Take picture by using Camera</small>
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Bank Name<span>*</span></label>
-                    <input type="text" class="form-control" id="BankName" name="BankName" required
+                    <input type="text" class="form-control" id="bank_name" name="bank_name" required
                         value="<%=kycData.bank_name %>" />
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Bank A/C No.<span>*</span></label>
-                    <input type="text" class="form-control numberonly" name="BankAC" maxlength="16" required
+                    <input type="text" class="form-control numberonly" name="bank_account_no" maxlength="16" required
                         value="<%=kycData.bank_account_no %>" />
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">IFSC Code<span>*</span></label>
-                    <input type="text" class="form-control" name="IFSC" maxlength="11" required
+                    <input type="text" class="form-control" name="ifsc_code" maxlength="11" required
                         value="<%=kycData.ifsc_code %>" />
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Bank Cheque Image<span>*</span></label>
-                    <input type="file" class="form-control" name="Cheque" multiple />
+                    <input type="file" class="form-control" name="bank_cheque" multiple />
                     <small><i class="fa fa-info-circle" aria-hidden="true"></i> Upload cancelled cheque copy</small>
                 </div>
                 <div class="col-md-4">
                     <label for="AWSM" class="form-label">Photo ID<span>*</span></label>
-                    <input type="file" class="form-control" name="PhotoID" multiple />
+                    <input type="file" class="form-control" name="photo_id" multiple />
                     <small><i class="fa fa-info-circle" aria-hidden="true"></i> Take picture by using Camera</small>
                 </div>
                 <div class="col-md-4">
