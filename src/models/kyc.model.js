@@ -121,4 +121,33 @@ const updateReKycModel = async (data) => {
 
 }
 
-module.exports = { selectQueryAW, selectFilterAWSM, selectFromAWSM, insertQuery, selectFilterKyc, selectAllKyc, selecKycByAWSM, updateReKycModel }
+const replacekycModel = async (data) => {
+  const updateQuery = `UPDATE kyc_details SET kyc_type = ?, beneficiary_name = ?, address = ?, photo = ?, bank_account_no = ?,  ifsc_code = ?, bank_cheque = ?, bank_name = ?, photo_id = ?, mobile_no = ?, gender = ?, dob = ?, status = ? WHERE awsm_code = ?`;
+
+  const updateField = ['Replace-KYC-Request', data.beneficiary_name, data.address, data.photo, data.bank_account_no, data.ifsc_code, data.bank_cheque, data.bank_name, data.photo_id, data.mobile_no, data.gender, data.dob, "SUCCESS", data.awsm_code];
+
+
+  return new Promise((resolve, reject) => {
+    dbCon.query(updateQuery, updateField, (error, result) => {
+      if (error) {
+        return reject(error)
+      }
+      return resolve(result);
+    });
+  })
+
+}
+
+const selectKycDetail = async (data) => {
+  let query = `SELECT * FROM kyc_details WHERE awsm_code = '${data.awsm_code}'`;
+  return new Promise((resolve, reject) => {
+    dbCon.query(query, (error, result) => {
+      if (error) {
+        return reject(error)
+      }
+      return resolve(result);
+    });
+  })
+}
+
+module.exports = { selectQueryAW, selectFilterAWSM, selectFromAWSM, insertQuery, selectFilterKyc, selectAllKyc, selecKycByAWSM, updateReKycModel, replacekycModel, selectKycDetail }
